@@ -1,0 +1,12 @@
+{
+    "name": "codeowners",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": ".."
+	},
+	"features": {
+		"ghcr.io/devcontainers-contrib/features/pre-commit:2.0.17": {
+			"version": "3.4.0"
+		}
+	}
+}
