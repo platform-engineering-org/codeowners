@@ -20,7 +20,7 @@
         "\"ghcr.io/devcontainers/features/pre-commit\"",
         "\"version\":\\s*\"(?<currentValue>.*)\""
       ],
-      "extractVersionTemplate": "^v?(?<version>.*)$"
+      "extractVersionTemplate": "^v?(?<version>.*)$",
       "depNameTemplate": "pre-commit/pre-commit",
       "datasourceTemplate": "github-releases"
     }
