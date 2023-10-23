@@ -3,7 +3,7 @@
 import gitlab
 import dotenv
 import os
-
+import requests
 
 def codeowners_enabled(project):
     try:
@@ -22,8 +22,7 @@ def main():
 
     gl = gitlab.Gitlab(
         url=os.getenv("GITLAB_URL"),
-        private_token=os.getenv("TOKEN"),
-        ssl_verify="/usr/local/share/ca-certificates/Current-IT-Root-CAs.pem",
+        private_token=os.getenv("TOKEN")
     )
 
     group = gl.groups.get(id=os.getenv("GROUP_ID"))
