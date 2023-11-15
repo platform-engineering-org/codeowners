@@ -9,7 +9,7 @@ def codeowners_enabled(project):
     try:
         codeowners_filelist = [
             f
-            for f in project.repository_tree(get_all=True)
+            for f in project.repository_tree(recursive=True, all=True)
             if f["name"] == "CODEOWNERS"
         ]
         return len(codeowners_filelist) != 0
@@ -26,7 +26,7 @@ def main():
     )
 
     group = gl.groups.get(id=os.getenv("GROUP_ID"))
-    for p in group.projects.list(include_subgroups=True, get_all=True):
+    for p in group.projects.list(include_subgroups=True, archived=False, get_all=True):
         project = gl.projects.get(p.id, lazy=True)
         if not codeowners_enabled(project):
             print(f"{p.namespace['full_path']}/{p.name}")
