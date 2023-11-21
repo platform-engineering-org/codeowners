@@ -1,15 +1,17 @@
 #!/usr/bin/env python3
 
 import pandas
+import tabulate
+
 import extract
 
 
 def main():
-    print(
-        pandas.DataFrame(extract.extract())
-        .style.set_properties(**{"text-align": "left"})
-        .to_string()
+    df = pandas.DataFrame(extract.extract()).sort_values(
+        by=["path"], ignore_index=True
     )
+
+    print(tabulate.tabulate(df, headers="keys", tablefmt="psql"))
 
 
 if __name__ == "__main__":
