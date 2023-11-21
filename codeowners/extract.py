@@ -1,8 +1,7 @@
-import gitlab
-import dotenv
 import os
 
-import repository
+import dotenv
+import gitlab
 
 
 def codeowners_enabled(project):
@@ -29,9 +28,8 @@ def extract():
         include_subgroups=True, archived=False, get_all=True
     ):
         project = gl.projects.get(p.id, lazy=True)
-        yield (
-            repository.Repository(
-                path=p.path_with_namespace,
-                codeowners_file_exists=codeowners_enabled(project),
-            )
-        )
+        yield {
+            "path": p.path_with_namespace,
+            "name": p.name,
+            "codeowners_file_exists": codeowners_enabled(project),
+        }
