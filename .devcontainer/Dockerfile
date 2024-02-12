@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/vscode/devcontainers/python:3.12@sha256:a2c4de938fc8c5eb846711e807bfe50a0d809626b0631244441b8d6368590d43
+FROM mcr.microsoft.com/vscode/devcontainers/python:3.12@sha256:4ed40b62c339c2960520aa7464eb60d85535ad73262421d32fe72bbccb4432c3
 
 WORKDIR /usr/local/share/ca-certificates
 RUN curl -s --fail https://certs.corp.redhat.com/certs/Current-IT-Root-CAs.pem -o /usr/local/share/ca-certificates/Current-IT-Root-CAs.crt && \
