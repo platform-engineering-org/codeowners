@@ -2,27 +2,5 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "github>platform-engineering-org/.github"
-  ],
-  "customManagers": [
-    {
-      "customType": "regex",
-      "fileMatch": [".devcontainer/devcontainer.json"],
-      "matchStrings": [
-        "\"(?<depName>ghcr.io/devcontainers/features/pre-commit):(?<currentValue>.*)\""
-      ],
-      "datasourceTemplate": "docker"
-    },
-    {
-      "customType": "regex",
-      "matchStringsStrategy": "combination",
-      "fileMatch": [".devcontainer/devcontainer.json"],
-      "matchStrings": [
-        "\"ghcr.io/devcontainers/features/pre-commit\"",
-        "\"version\":\\s*\"(?<currentValue>.*)\""
-      ],
-      "extractVersionTemplate": "^v?(?<version>.*)$",
-      "depNameTemplate": "pre-commit/pre-commit",
-      "datasourceTemplate": "github-releases"
-    }
   ]
 }
