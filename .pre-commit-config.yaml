@@ -4,7 +4,7 @@ default_language_version:
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.6.0
+    rev: v6.0.0
     hooks:
       - id: end-of-file-fixer
       - id: trailing-whitespace
@@ -20,10 +20,10 @@ repos:
       - id: check-json
       - id: check-yaml
   - repo: https://github.com/markdownlint/markdownlint
-    rev: v0.13.0
+    rev: v0.15.0
     hooks:
       - id: markdownlint
   - repo: https://github.com/mrtazz/checkmake
-    rev: 0.2.2
+    rev: v0.3.2
     hooks:
       - id: checkmake
